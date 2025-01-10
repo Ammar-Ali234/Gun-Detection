@@ -8,7 +8,7 @@ def detect_guns(image_path):
     # Read the image
     image = cv2.imread(image_path)
     
-    # Perform detection with confidence threshold of 0.5
+    # Perform detection with confidence threshold of 0.65
     results = model(image, conf=0.65)[0]
     
     # Process and draw detections
