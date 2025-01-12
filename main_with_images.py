@@ -3,10 +3,11 @@ import cv2
 
 def detect_guns(image_path):
     
-    model = YOLO('best.pt')  
+    model = YOLO('C:\\Users\\HP\\OneDrive\\Desktop\\Portfolio\\Gun\\best.pt')  
     
     image = cv2.imread(image_path)
-    results = model(image, conf=0.65)[0]
+    image = cv2.resize(image, (640, 480))
+    results = model(image, conf=0.50)[0]
     
     for box in results.boxes:
         confidence = box.conf.item()
@@ -24,5 +25,5 @@ def detect_guns(image_path):
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    image_path = 'ww.jpg'  
+    image_path = 'C:\\Users\\HP\\OneDrive\\Desktop\\Portfolio\\Gun\\check.jpg'  
     detect_guns(image_path)
